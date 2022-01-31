@@ -11,12 +11,11 @@ import expressLayouts from 'express-ejs-layouts'
 import logger from 'morgan'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-// import { router } from './routes/router.js'
+import { router } from './routes/router.js'
 // import { connectDB } from './config/mongoose.js'
 import 'dotenv/config'
 
 console.log('Hello World!')
-console.log(process.env.PORT)
 
 // Creates an Express application.
 const app = express()
@@ -52,7 +51,7 @@ app.use((req, res, next) => {
 })
 
 // Register routes.
-// app.use('/', router)
+app.use('/', router)
 
 // Starts the HTTP server listening for connections.
 app.listen(process.env.PORT, () => {

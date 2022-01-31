@@ -1,3 +1,79 @@
-* {
-  color: red;
+/* ---------- General ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* * {
+  color: #111;
+} */
+
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* ---------- Header ---------- */
+header {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+nav {
+  display: block;
+  float: right;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display:inline;
+  padding: 0.8em;
+}
+
+nav ul a {
+  color: #fff;
+  list-style-type: none;
+  display:inline;
+}
+
+nav ul a:hover {
+  color: greenyellow;
+}
+
+/* ---------- Content ---------- */
+main {
+  padding: 1em;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #111;
+  color: #fff !important;
+  text-align: center;
+}
+
+footer a {
+  color: greenyellow;
 }

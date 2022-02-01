@@ -12,10 +12,13 @@ import logger from 'morgan'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { router } from './routes/router.js'
-// import { connectDB } from './config/mongoose.js'
+import { connectDB } from './config/mongoose.js'
 import 'dotenv/config'
 
 console.log('Hello World!')
+
+// Connect to MongoDB.
+await connectDB()
 
 // Creates an Express application.
 const app = express()

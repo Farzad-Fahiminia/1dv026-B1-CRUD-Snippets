@@ -11,6 +11,8 @@
     <% if (viewData?.snippets?.length) { %>
       <% for (const snippet of viewData.snippets) { %>
         <tr>
+          <td class="text-center text-primary"><input class="form-check-input" type="checkbox" id="doneCheck" disabled
+            <% if (snippet.done) { %> checked <% } %> /></td>
           <td class="w-100 <% if (snippet.done) { %> text-muted <% } %>">
             <%= snippet.description %>
           </td>

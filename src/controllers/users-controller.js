@@ -49,7 +49,7 @@ export class UsersController {
       await user.save()
 
       req.session.flash = { type: 'success', text: 'The user was created successfully.' }
-      res.redirect('.')
+      res.redirect('./register')
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
       res.redirect('./register')

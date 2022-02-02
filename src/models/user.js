@@ -6,6 +6,7 @@
  */
 
 import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
 
 // Create a schema.
 const schema = new mongoose.Schema({
@@ -18,14 +19,16 @@ const schema = new mongoose.Schema({
   password: {
     type: String,
     minlength: [8, 'The password must be of minimum length 8 characters.'],
+    maxlength: [500, 'The password must be of maximum length 500 characters.'],
     required: true
   }
 }, {
   timestamps: true
 })
 
-schema.virtual('id').get(function () {
-  return this._id.toHexString()
+// Salts and hashes password before save.
+schema.pre('save', async function () {
+  this.password = await bcrypt.hash(this.password, 8)
 })
 
 // Create a model using the schema.

@@ -17,6 +17,4 @@ const controller = new UsersController()
 router.get('/login', (req, res, next) => controller.index(req, res, next))
 
 router.get('/register', (req, res, next) => controller.register(req, res, next))
-router.post('/register', (req, res, next) => {
-  console.log('ÄR JAG INNE I RÄTT?')
-  controller.registerUser(req, res, next)})
+router.post('/register', (req, res, next) => controller.registerUser(req, res, next))

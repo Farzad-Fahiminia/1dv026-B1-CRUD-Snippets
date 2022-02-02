@@ -56,7 +56,9 @@ export class SnippetsController {
     console.log(req.body)
     try {
       const snippet = new Snippet({
-        description: req.body.description
+        title: req.body.title,
+        description: req.body.description,
+        author: req.body.author
       })
 
       await snippet.save()
@@ -97,7 +99,9 @@ export class SnippetsController {
       const snippet = await Snippet.findById(req.params.id)
 
       if (snippet) {
+        snippet.title = req.body.title
         snippet.description = req.body.description
+        snippet.author = req.body.author
         snippet.done = req.body.done === 'on'
 
         await snippet.save()

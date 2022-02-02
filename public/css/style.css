@@ -1,9 +1,9 @@
 /* ---------- General ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* * {
+a {
   color: #111;
-} */
+}
 
 body {
   background-color: #dceae8;
@@ -21,10 +21,20 @@ input[type=password],
 input[type=number],
 input[type=checkbox],
 input[type=submit],
-input[type=button] {
+input[type=button],
+textarea {
   padding: 10px 20px;
+  margin-bottom: 10px;
   border-radius: 4px;
   border: none;
+}
+
+input, label {
+  display: block;
+}
+
+textarea {
+  resize: none;
 }
 
 button, input[type=submit] {
@@ -39,6 +49,38 @@ button, input[type=submit] {
 
 button:hover, input[type=submit]:hover {
   background-color: #45a049;
+}
+
+.table-striped {
+  border-collapse: collapse;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.table-striped td, .table-striped th {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.table-striped tr:nth-child(even){
+  background-color: #f2f2f2;
+  border-radius: 4px;
+}
+
+.table-striped tr:hover {
+  background-color: #dceae8;
+  border-radius: 4px;
+}
+
+.table-striped th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #111;
+  border-radius: 4px;
+  color: #fff;
 }
 
 /* ---------- Header ---------- */
@@ -106,11 +148,8 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 10px 0;
-  background-color: #111;
-  color: #fff !important;
+  margin-top: 40px;
+  /* background-color: #111;
+  color: #fff !important; */
   text-align: center;
-}
-
-footer a {
-  color: greenyellow;
 }

@@ -17,7 +17,11 @@ const schema = new mongoose.Schema({
   author: {
     type: String,
     required: true,
-    default: false
+    minlength: 1
+  },
+  title: {
+    type: String,
+    required: false
   }
 }, {
   timestamps: true,

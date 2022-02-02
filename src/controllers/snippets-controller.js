@@ -102,7 +102,6 @@ export class SnippetsController {
         snippet.title = req.body.title
         snippet.description = req.body.description
         snippet.author = req.body.author
-        snippet.done = req.body.done === 'on'
 
         await snippet.save()
 

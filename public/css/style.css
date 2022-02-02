@@ -61,7 +61,7 @@ button:hover, input[type=submit]:hover {
 .table-striped td, .table-striped th {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 8px;
+  padding: 10px;
 }
 
 .table-striped tr:nth-child(even){
@@ -75,8 +75,7 @@ button:hover, input[type=submit]:hover {
 }
 
 .table-striped th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 15px;
   text-align: left;
   background-color: #111;
   border-radius: 4px;
@@ -142,14 +141,30 @@ main {
   color: #fff;
 }
 
+.center-content {
+  display: block;
+  margin: auto;
+  max-width: 400px;
+}
+
+/* .center-content h1,
+.center-content p,
+.center-content label,
+.center-content input,
+.center-content button {
+  text-align: center !important;
+  margin: auto;
+} */
+
 /* ---------- Footer ---------- */
 footer {
   position: relative;
   bottom: 0;
   width: 100%;
   padding: 10px 0;
-  margin-top: 40px;
+  margin-top: 80px;
   /* background-color: #111;
   color: #fff !important; */
   text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

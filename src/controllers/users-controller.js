@@ -76,7 +76,7 @@ export class UsersController {
       req.session.username = user.username
       console.log(req.session.username)
       req.session.flash = { type: 'success', text: 'You are successfully logged in!' }
-      res.redirect('./login')
+      res.redirect('./account')
     } catch (error) {
       console.log(error)
       req.session.flash = { type: 'danger', text: error.message }

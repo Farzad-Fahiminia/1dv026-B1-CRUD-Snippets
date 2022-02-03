@@ -79,6 +79,11 @@ app.use((req, res, next) => {
     delete req.session.flash
   }
 
+  // Uses the active session username.
+  if (req.session.username) {
+    res.locals.username = req.session.username
+  }
+
   // Pass the base URL to the views.
   res.locals.baseURL = baseURL
 

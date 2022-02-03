@@ -56,6 +56,44 @@ export class UsersController {
     }
   }
 
+  /**
+   * Logs the user in.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async loginUser (req, res, next) {
+    console.log('ÄR VI INNE I LOGIN USER?')
+    try {
+      const user = await User.authenticate(req.body.username, req.body.password)
+      req.session.regenerate((error) => {
+        if (error) {
+          throw new Error('Failed to re-generate session.')
+        }
+      })
+
+      req.session.username = user.username
+      console.log(req.session.username)
+      req.session.flash = { type: 'success', text: 'You are successfully logged in!' }
+      res.redirect('./login')
+    } catch (error) {
+      console.log(error)
+      req.session.flash = { type: 'danger', text: error.message }
+      res.redirect('./login')
+    }
+  }
+
+  /**
+   * Returns a HTML form for creating a new snippet.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   */
+  async account (req, res) {
+    res.render('users/account')
+  }
+
   // /**
   // * Returns a HTML form for updating a snippet.
   // *

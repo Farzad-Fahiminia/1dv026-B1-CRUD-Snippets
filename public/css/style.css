@@ -3,6 +3,7 @@
 
 a {
   color: #111;
+  transition: all 300ms ease;
 }
 
 body {
@@ -41,10 +42,11 @@ button, input[type=submit] {
   cursor: pointer;
   padding: 10px 20px;
   background-color: #4CAF50;
-  color: white;
+  color: #fff;
   margin: 8px 0;
-  border: 1px solid #dedede;
+  border: none;
   border-radius: 4px;
+  transition: background-color 300ms ease;
 }
 
 button:hover, input[type=submit]:hover {
@@ -132,29 +134,30 @@ main {
 .alert-danger {
   padding: 10px;
   background-color: red;
+  border-radius: 4px;
   color: #fff;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .alert-success {
   padding: 10px;
   background-color: green;
+  border-radius: 4px;
   color: #fff;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .center-content {
   display: block;
   margin: auto;
-  max-width: 400px;
+  max-width: 230px;
 }
-
-/* .center-content h1,
-.center-content p,
-.center-content label,
-.center-content input,
-.center-content button {
-  text-align: center !important;
-  margin: auto;
-} */
 
 /* ---------- Footer ---------- */
 footer {
@@ -163,8 +166,6 @@ footer {
   width: 100%;
   padding: 10px 0;
   margin-top: 80px;
-  /* background-color: #111;
-  color: #fff !important; */
   text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

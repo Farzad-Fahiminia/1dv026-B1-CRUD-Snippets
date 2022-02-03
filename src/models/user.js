@@ -9,7 +9,7 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
 // Create a schema.
-const schema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -27,9 +27,27 @@ const schema = new mongoose.Schema({
 })
 
 // Salts and hashes password before save.
-schema.pre('save', async function () {
+userSchema.pre('save', async function () {
   this.password = await bcrypt.hash(this.password, 8)
 })
 
+/**
+ * Lookup the user in the database and compare, using a “constant-time” algorithm,
+ * the provided password with the hashed one from the database.
+ *
+ * @param {string} username - The users name.
+ * @param {string} password - The users password.
+ * @returns {string} - Returns the user.
+ *
+ */
+userSchema.statics.authenticate = async function (username, password) {
+  const user = await this.findOne({ username })
+
+  if (!user || !(await bcrypt.compare(password, user.password))) {
+    throw new Error('Invalid username or password!')
+  }
+  return user
+}
+
 // Create a model using the schema.
-export const User = mongoose.model('User', schema)
+export const User = mongoose.model('User', userSchema)

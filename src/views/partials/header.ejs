@@ -8,9 +8,6 @@
       <li class="nav-item">
         <a class="nav-link" href="./snippets/">Snippet List</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./snippets/create">Create Snippets</a>
-      </li>
       <% if (typeof username === 'undefined') { %>
       <li class="nav-item">
         <a class="nav-link" href="./users/login">Login</a>
@@ -18,10 +15,13 @@
       <% } %>
       <% if (typeof username !== 'undefined') { %>
         <li class="nav-item">
+          <a class="nav-link" href="./snippets/create">Create Snippets</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="./users/logout">Logout</a>
         </li>
         <li>
-          Hello, <%= username %>
+          Hello, <a class="nav-link" href="./users/account"><%= username %></a>
         </li>
       <% } %>
     </ul>

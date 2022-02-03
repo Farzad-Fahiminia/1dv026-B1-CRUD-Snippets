@@ -64,7 +64,6 @@ export class UsersController {
    * @param {Function} next - Express next middleware function.
    */
   async loginUser (req, res, next) {
-    console.log('ÄR VI INNE I LOGIN USER?')
     try {
       const user = await User.authenticate(req.body.username, req.body.password)
       req.session.regenerate((error) => {
@@ -74,11 +73,9 @@ export class UsersController {
       })
 
       req.session.username = user.username
-      console.log(req.session.username)
-      req.session.flash = { type: 'success', text: 'You are successfully logged in!' }
+      // req.session.flash = { type: 'success', text: 'You are successfully logged in!' }
       res.redirect('./account')
     } catch (error) {
-      console.log(error)
       req.session.flash = { type: 'danger', text: error.message }
       res.redirect('./login')
     }
@@ -101,90 +98,11 @@ export class UsersController {
    * @param {object} res - Express response object.
    */
   async logout (req, res) {
-    console.log('Utloggad!')
-    req.session.destroy()
-    res.redirect('/')
+    try {
+      req.session.destroy()
+      res.redirect('/')
+    } catch (error) {
+      res.redirect('/')
+    }
   }
-
-  // /**
-  // * Returns a HTML form for updating a snippet.
-  // *
-  // * @param {object} req - Express request object.
-  // * @param {object} res - Express response object.
-  // */
-  // async update (req, res) {
-  //   try {
-  //     const user = await Users.findById(req.params.id)
-
-  //     res.render('users/update', { viewData: user.toObject() })
-  //   } catch (error) {
-  //     req.session.flash = { type: 'danger', text: error.message }
-  //     res.redirect('..')
-  //   }
-  // }
-
-  // /**
-  // * Updates a specific snippet.
-  // *
-  // * @param {object} req - Express request object.
-  // * @param {object} res - Express response object.
-  // */
-  // async updatePost (req, res) {
-  //   try {
-  //     const user = await User.findById(req.params.id)
-
-  //     if (user) {
-  //       user.username = req.body.username
-  //       user.password = req.body.password
-
-  //       await user.save()
-
-  //       req.session.flash = { type: 'success', text: 'The user was updated successfully.' }
-  //     } else {
-  //       req.session.flash = {
-  //         type: 'danger',
-  //         text: 'The user you attempted to update was removed by another user after you got the original values.'
-  //       }
-  //     }
-  //     res.redirect('..')
-  //   } catch (error) {
-  //     req.session.flash = { type: 'danger', text: error.message }
-  //     res.redirect('./update')
-  //   }
-  // }
-
-  // /**
-  // * Returns a HTML form for deleting a snippet.
-  // *
-  // * @param {object} req - Express request object.
-  // * @param {object} res - Express response object.
-  // */
-  // async delete (req, res) {
-  //   try {
-  //     const user = await User.findById(req.params.id)
-
-  //     res.render('users/delete', { viewData: user.toObject() })
-  //   } catch (error) {
-  //     req.session.flash = { type: 'danger', text: error.message }
-  //     res.redirect('..')
-  //   }
-  // }
-
-  // /**
-  // * Deletes the specified snippet.
-  // *
-  // * @param {object} req - Express request object.
-  // * @param {object} res - Express response object.
-  // */
-  // async deletePost (req, res) {
-  //   try {
-  //     await User.findByIdAndDelete(req.body.id)
-
-  //     req.session.flash = { type: 'success', text: 'The user was deleted successfully.' }
-  //     res.redirect('..')
-  //   } catch (error) {
-  //     req.session.flash = { type: 'danger', text: error.message }
-  //     res.redirect('./delete')
-  //   }
-  // }
 }

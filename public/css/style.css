@@ -159,6 +159,10 @@ main {
   max-width: 230px;
 }
 
+.center {
+  text-align: center;
+}
+
 /* ---------- Footer ---------- */
 footer {
   position: relative;

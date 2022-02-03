@@ -19,7 +19,7 @@ export class UsersController {
    * @param {Function} next - Express next middleware function.
    */
   async index (req, res, next) {
-    res.render('users/login')
+    res.render('users/login', { csrfToken: req.csrfToken() })
   }
 
   /**
@@ -29,7 +29,7 @@ export class UsersController {
    * @param {object} res - Express response object.
    */
   async register (req, res) {
-    res.render('users/register')
+    res.render('users/register', { csrfToken: req.csrfToken() })
   }
 
   /**

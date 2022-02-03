@@ -1,5 +1,6 @@
 <h1>Update snippet</h1>
 <form class="snippets-form" method="post" action="./snippets/<%= viewData?.id %>/update">
+  <input type="hidden" name="_csrf" value="<%=csrfToken%>">
   <label class="form-label" for="titleInput">
     Title
   </label>

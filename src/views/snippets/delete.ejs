@@ -1,5 +1,6 @@
 <h1>Delete Snippet</h1>
 <form class="delete-form" method="post" action="./snippets/<%= viewData?.id %>/delete">
+  <input type="hidden" name="_csrf" value="<%=csrfToken%>">
   <input type="hidden" name="id" value="<%= viewData?.id %>" />
   <label class="form-label" for="titleInput">
     Title

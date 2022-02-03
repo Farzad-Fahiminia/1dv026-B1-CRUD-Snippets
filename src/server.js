@@ -9,6 +9,8 @@ import express from 'express'
 import expressLayouts from 'express-ejs-layouts'
 import session from 'express-session'
 import logger from 'morgan'
+import helmet from 'helmet'
+import csurf from 'csurf'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { router } from './routes/router.js'
@@ -31,6 +33,9 @@ try {
 
   // Set up a morgan logger using the dev format for log entries.
   app.use(logger('dev'))
+
+  // Adds security to the application.
+  app.use(helmet())
 
   // View engine setup.
   app.set('view engine', 'ejs')
@@ -90,6 +95,8 @@ try {
 
     next()
   })
+
+  app.use(csurf())
 
   // Register routes.
   app.use('/', router)

@@ -58,7 +58,7 @@ export class SnippetsController {
       const snippet = new Snippet({
         title: req.body.title,
         description: req.body.description,
-        author: req.body.author
+        author: req.session.username
       })
 
       await snippet.save()

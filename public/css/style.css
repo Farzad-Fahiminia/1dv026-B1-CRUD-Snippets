@@ -41,7 +41,7 @@ textarea {
 button, input[type=submit] {
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #111;
   color: #fff;
   margin: 8px 0;
   border: none;
@@ -50,7 +50,7 @@ button, input[type=submit] {
 }
 
 button:hover, input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #000;
 }
 
 .table-striped {
@@ -86,14 +86,14 @@ button:hover, input[type=submit]:hover {
 
 /* ---------- Header ---------- */
 header {
-  background-color: #111;
-  color: #fff;
-  padding: 20px;
+  /* background-color: #111; */
+  /* color: #111; */
+  padding: 30px 20px;
 }
 
 header a {
   text-decoration: none;
-  color: #fff;
+  color: #111;
 }
 
 .navbar-brand {
@@ -113,11 +113,11 @@ nav ul {
 
 nav ul li {
   display:inline;
-  padding: 0.8em;
+  padding: 2em 0.8em;
 }
 
 nav ul a {
-  color: greenyellow;
+  color: #111;
   list-style-type: none;
   display:inline;
 }

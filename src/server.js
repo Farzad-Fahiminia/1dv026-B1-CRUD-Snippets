@@ -94,9 +94,15 @@ try {
   // Register routes.
   app.use('/', router)
 
+  // Error handler. Redirects the user to the correct error page.
   app.use((err, req, res, next) => {
-    console.log(err)
-    res.render('errors/404')
+    if (err.status === 403) {
+      res.render('errors/403')
+    } else if (err.status === 404) {
+      res.render('errors/404')
+    } else {
+      res.render('errors/500')
+    }
   })
 
   // Starts the HTTP server listening for connections.

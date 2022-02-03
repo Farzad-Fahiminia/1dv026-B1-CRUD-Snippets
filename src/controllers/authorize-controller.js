@@ -20,13 +20,13 @@ export class AuthorizeController {
    */
   async checkUser (req, res, next) {
     try {
-      console.log('Hej hej Authorize controller')
       if (req.session.username) {
         next()
       } else {
-        throw new Error('404')
+        throw new Error('Page not found')
       }
     } catch (error) {
+      error.status = 404
       next(error)
     }
   }
@@ -42,12 +42,12 @@ export class AuthorizeController {
     try {
       const result = await Snippet.findById(req.params.id).exec()
       if (req.session.username === result.author) {
-        console.log('Lilla LISA')
         next()
       } else {
-        throw new Error('404')
+        throw new Error('Forbidden')
       }
     } catch (error) {
+      error.status = 403
       next(error)
     }
   }

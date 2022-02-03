@@ -20,7 +20,6 @@ export class SnippetsController {
    */
   async index (req, res, next) {
     try {
-      console.log('Hej hej Snippets controller')
       const viewData = {
         snippets: (await Snippet.find())
           .map(snippet => snippet.toObject())

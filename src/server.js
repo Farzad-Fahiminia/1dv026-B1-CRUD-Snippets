@@ -17,8 +17,6 @@ import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
 
 try {
-  console.log('Hello World!')
-
   // Connect to MongoDB.
   await connectDB()
 
@@ -96,6 +94,7 @@ try {
     next()
   })
 
+  // Security for hijacking forms.
   app.use(csurf())
 
   // Register routes.

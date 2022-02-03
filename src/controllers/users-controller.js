@@ -12,7 +12,7 @@ import { User } from '../models/user.js'
  */
 export class UsersController {
   /**
-   * Displays a list of snippets.
+   * Displays the login page.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
@@ -23,7 +23,7 @@ export class UsersController {
   }
 
   /**
-   * Returns a HTML form for creating a new snippet.
+   * Displays the register page.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
@@ -57,7 +57,7 @@ export class UsersController {
   }
 
   /**
-   * Logs the user in.
+   * Logs in the user.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
@@ -85,13 +85,25 @@ export class UsersController {
   }
 
   /**
-   * Returns a HTML form for creating a new snippet.
+   * Displays the users account page.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    */
   async account (req, res) {
     res.render('users/account')
+  }
+
+  /**
+   * Destroys the user session and logs out.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   */
+  async logout (req, res) {
+    console.log('Utloggad!')
+    req.session.destroy()
+    res.redirect('/')
   }
 
   // /**

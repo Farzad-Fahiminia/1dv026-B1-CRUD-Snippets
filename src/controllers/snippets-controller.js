@@ -25,10 +25,6 @@ export class SnippetsController {
         snippets: (await Snippet.find())
           .map(snippet => snippet.toObject())
       }
-      // const viewData = {
-      //   description: '<h1>Rubrik nummer 1</h1>',
-      //   author: 'Johan'
-      // }
 
       res.render('snippets/index', { viewData })
     } catch (error) {
@@ -101,7 +97,6 @@ export class SnippetsController {
       if (snippet) {
         snippet.title = req.body.title
         snippet.description = req.body.description
-        snippet.author = req.body.author
 
         await snippet.save()
 

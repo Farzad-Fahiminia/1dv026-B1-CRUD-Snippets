@@ -94,6 +94,11 @@ try {
   // Register routes.
   app.use('/', router)
 
+  app.use((err, req, res, next) => {
+    console.log(err)
+    res.render('errors/404')
+  })
+
   // Starts the HTTP server listening for connections.
   app.listen(process.env.PORT, () => {
     console.log(`Server running at http://localhost:${process.env.PORT}`)

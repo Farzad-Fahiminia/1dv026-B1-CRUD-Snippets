@@ -123,7 +123,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-  color: #fff;
+  text-decoration: underline;
 }
 
 /* ---------- Content ---------- */

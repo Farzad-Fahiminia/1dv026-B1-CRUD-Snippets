@@ -100,9 +100,9 @@ export class UsersController {
   async logout (req, res) {
     try {
       req.session.destroy()
-      res.redirect('/')
+      res.redirect('./login')
     } catch (error) {
-      res.redirect('/')
+      res.redirect('./login')
     }
   }
 }
